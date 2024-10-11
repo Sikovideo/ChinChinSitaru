@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情報表示</title>
+    <style>
+        body {
+            background-image: url('背景.jpg');
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 全体を上に配置 */
+            height: 100vh;
+            padding-top: 20px; /* 上の余白を少し追加して調整 */
+        }
+
+        .container {
+            text-align: center;
+            border: 1px solid black;
+            padding: 5px;
+            width: 300px;
+            background-color: white;
+        }
+
+        .image-box img {
+            width: 80%; /* 画像サイズをさらに小さく */
+            height: auto;
+            border: 1px solid black;
+            margin-top: 5px; /* 上部に少し余白を追加 */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-box">
+            <img id="displayImage" alt="選択された画像">
+        </div>
+        <table>
+            <tr>
+                <td>SEX</td>
+            </tr>
+            <tr>
+                <td id="displayName">名前</td>
+            </tr>
+            <tr>
+                <td id="displayBirthdate">生年月日</td>
+            </tr>
+            <tr>
+                <td id="displayHeight">身長</td>
+            </tr>
+            <tr>
+                <td id="displayWeight">体重</td>
+            </tr>
+            <tr>
+                <td id="displayTeam">前所属チーム</td>
+            </tr>
+            <tr>
+                <td>チンチンにしたる！</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // localStorageからデータを取得して表示
+        document.getElementById('displayImage').src = localStorage.getItem('image');
+        document.getElementById('displayName').textContent = localStorage.getItem('name');
+        document.getElementById('displayBirthdate').textContent = localStorage.getItem('birthdate');
+        document.getElementById('displayHeight').textContent = localStorage.getItem('height') + " cm";
+        document.getElementById('displayWeight').textContent = localStorage.getItem('weight') + " kg";
+        document.getElementById('displayTeam').textContent = localStorage.getItem('team');
+    </script>
+</body>
+</html>
