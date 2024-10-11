@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ちんちんにしたる！！</title>
+    <style>
+        body {
+            background-image: url('背景.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <h2>ちんちんにしたる！</h2>
+        <label for="image">画像を選択:</label>
+        <input type="file" id="image" accept="image/*">
+
+        <label for="name">名前:</label>
+        <input type="text" id="name">
+
+        <label for="birthdate">生年月日:</label>
+        <input type="text" id="birthdate">
+
+        <label for="height">身長:</label>
+        <input type="text" id="height">
+
+        <label for="weight">体重:</label>
+        <input type="text" id="weight">
+
+        <label for="team">前所属チーム:</label>
+        <input type="text" id="team">
+
+        <button type="button" onclick="submitData()">送信</button>
+    </form>
+
+    <script>
+        function submitData() {
+            const image = document.getElementById('image').files[0];
+            const name = document.getElementById('name').value;
+            const birthdate = document.getElementById('birthdate').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            const team = document.getElementById('team').value;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                localStorage.setItem('image', event.target.result);
+                localStorage.setItem('name', name);
+                localStorage.setItem('birthdate', birthdate);
+                localStorage.setItem('height', height);
+                localStorage.setItem('weight', weight);
+                localStorage.setItem('team', team);
+                window.location.href = 'ちんちん.html';
+            };
+            if (image) {
+                reader.readAsDataURL(image);
+            } else {
+                alert('画像を選択してください');
+            }
+        }
+    </script>
+</body>
+</html>
