@@ -3,60 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>情報表示</title>
+    <title>ちんちんにしたる！！</title>
     <style>
         body {
-            background-image: url('背景.jpg');
-            background-size: cover;
             margin: 0;
+            padding: 0;
+            background-image: url('背景.jpg');
+            background-size: calc(100vw / 3.5) auto; /* 背景を横に3.5個並べる */
+            background-repeat: repeat; /* 背景を繰り返し表示 */
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* 全体を上に配置 */
+            flex-direction: column;
+            justify-content: flex-start; /* 全体を上部に配置 */
+            align-items: center;
             height: 100vh;
-            padding-top: 20px; /* 上の余白を少し追加して調整 */
+            padding-top: 20px; /* 上部に少し余白を追加 */
+        }
+
+        .image-box {
+            margin-bottom: 20px; /* 画像とテーブルの間に少し余白を追加 */
+        }
+
+        .image-box img {
+            width: 250px; /* 画像の幅を指定 */
+            height: auto;
+            border: 1px solid black;
         }
 
         .container {
             text-align: center;
-            border: 1px solid black;
-            padding: 5px;
-            width: 300px;
             background-color: white;
-        }
-
-        .image-box img {
-            width: 80%; /* 画像サイズをさらに小さく */
-            height: auto;
+            padding: 10px;
             border: 1px solid black;
-            margin-top: 5px; /* 上部に少し余白を追加 */
+            width: 250px; /* 全体を少し小さく */
         }
 
         table {
             width: 100%;
+            margin-top: 10px;
             border-collapse: collapse;
-            margin-top: 5px;
-            background-color: white;
-        }
-
-        table, th, td {
-            border: 1px solid black;
         }
 
         td {
+            border: 1px solid black;
             padding: 5px;
-            font-size: 12px;
-            text-align: center;
+            font-size: 12px; /* 文字を少し小さく */
         }
     </style>
 </head>
 <body>
+
+    <!-- 画像は情報枠の外に配置 -->
+    <div class="image-box">
+        <img id="displayImage" alt="選択された画像">
+    </div>
+
+    <!-- 情報を表示する枠 -->
     <div class="container">
-        <div class="image-box">
-            <img id="displayImage" alt="選択された画像">
-        </div>
         <table>
             <tr>
-                <td>SEX</td>
+                <td>MF</td>
             </tr>
             <tr>
                 <td id="displayName">名前</td>
@@ -74,7 +79,7 @@
                 <td id="displayTeam">前所属チーム</td>
             </tr>
             <tr>
-                <td>チンチンにしたる！</td>
+                <td>チンチンにした！</td>
             </tr>
         </table>
     </div>
